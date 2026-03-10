@@ -1,1 +1,30 @@
-// Specific CSS for your home-page
+.hero-section {
+  min-height: 85vh;
+  padding-top: 80px;
+  background: linear-gradient(to bottom, #e8f5ff, #ffffff);
+}
+
+.hero-title {
+  font-size: 3.5rem;
+  font-weight: 800;
+  color: #1f2a44;
+  margin-bottom: 20px;
+}
+
+.hero-subtitle {
+  font-size: 1.2rem;
+  color: #555;
+  max-width: 650px;
+  margin: 0 auto;
+}
+
+.travel-card {
+  background: white;
+  border-radius: 20px;
+  box-shadow: 0 12px 30px rgba(0,0,0,0.08);
+  transition: transform 0.2s ease;
+}
+
+.travel-card:hover {
+  transform: translateY(-4px);
+}

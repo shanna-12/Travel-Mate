@@ -10,3 +10,40 @@
 // Your CSS partials
 @import "components/index";
 @import "pages/index";
+@import "pages/home";
+
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 30px;
+
+  max-width: 900px;
+  margin: 60px auto;
+}
+
+.card-category {
+  background-size: cover;
+  background-position: center;
+
+  height: 260px;
+  border-radius: 20px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  color: white;
+  font-size: 1.8rem;
+  font-weight: bold;
+  text-align: center;
+
+  text-decoration: none;
+
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.card-category:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 15px 40px rgba(0,0,0,0.25);
+}
