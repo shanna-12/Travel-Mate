@@ -27,7 +27,8 @@ class MessagesController < ApplicationController
   end
 
   def itinerary_context
-    "Here is the context of the itinerary: #{@itinerary.holiday_type} #{@itinerary.start_date}."
+    "Here is the context of the itinerary: a #{@itinerary.holiday_type} holiday, from #{@itinerary.start_date} to #{@itinerary.end_date}
+    with #{@itinerary.adults} adults and #{@itinerary.children} children, buget is #{@itinerary.budget}."
   end
 
   def instructions
