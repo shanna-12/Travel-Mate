@@ -2,30 +2,18 @@
   <div class="container-fluid">
 
     <%= link_to root_path, class: "navbar-brand fw-bold d-flex align-items-center" do %>
-      🌍 Travel Mate
+      <%= image_tag "logoresized.png", alt: "TravelMate Logo" %>
     <% end %>
 
-    <div class="ms-auto">
-
+    <div class="ms-auto d-flex align-items-center">
       <% if user_signed_in? %>
-
-        <%= link_to "Log out",
-          destroy_user_session_path,
-          data: { turbo_method: :delete },
-          class: "btn btn-outline-dark" %>
-
+        <%# Keeping your custom rounded outline button %>
+        <%= link_to "Log out", destroy_user_session_path, data: { turbo_method: :delete }, class: "btn btn-tm-outline" %>
       <% else %>
-
-        <%= link_to "Login",
-          new_user_session_path,
-          class: "btn btn-outline-dark me-2" %>
-
-        <%= link_to "Sign up",
-          new_user_registration_path,
-          class: "btn btn-dark" %>
-
+        <%# Keeping your custom rounded blue buttons %>
+        <%= link_to "Login", new_user_session_path, class: "btn btn-tm-outline me-2" %>
+        <%= link_to "Sign up", new_user_registration_path, class: "btn btn-tm-blue" %>
       <% end %>
-
     </div>
 
   </div>

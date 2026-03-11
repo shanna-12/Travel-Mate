@@ -11,6 +11,7 @@
 @import "components/index";
 @import "pages/index";
 @import "pages/home";
+@import "components/buttons";
 
 
 .cards {
@@ -46,4 +47,41 @@
 .card-category:hover {
   transform: translateY(-6px);
   box-shadow: 0 15px 40px rgba(0,0,0,0.25);
+}
+
+
+h1,h2,h3 {
+font-family: "Nunito", "Helvetica", "sans-serif";
+font-weight: 800;
+color: #1f2a44;
+font-size: 32px;
+letter-spacing: -0.5px;
+margin-bottom: 20px;
+}
+
+h2 {
+  font-weight: 700;
+  font-size: 2rem;
+}
+
+.form-label {
+  font-weight: 600;
+  font-size: 0.9rem;
+  color: #495057;
+}
+
+.form-control:focus {
+  border-color: #1d3557;
+  box-shadow: 0 0 0 0.25rem rgba(29, 53, 87, 0.1);
+}
+
+.text-muted a {
+  color: #6c757d;
+  text-decoration: none;
+  margin: 0 5px;
+}
+
+.text-muted a:hover {
+  color: #1d3557;
+  text-decoration: underline;
 }
