@@ -15,7 +15,7 @@
         I have an idea for my travel
       <% end %>
 
-      <%= link_to new_itinerary_path(mode: "ideas"),
+      <%= button_to create_itinerary_path(mode: "ideas"),
           class: "card-category",
           style: "background-image: linear-gradient(rgba(0,0,0,0.35), rgba(0,0,0,0.35)), url('#{asset_path('balloons.jpg')}')" do %>
         Help me find my next destination

@@ -20,39 +20,39 @@
 
           <div class="mb-3">
             <%= f.label :destination, class: "form-label" %>
-            <%= f.text_field :destination, class: "form-control rounded-3", placeholder: "e.g. Paris, Tokyo..." %>
+            <%= f.text_field :destination, class: "form-control rounded-3", required: true, placeholder: "e.g. Paris, Tokyo..." %>
           </div>
 
           <div class="mb-3">
             <%= f.label :holiday_type, class: "form-label" %>
-            <%= f.select :holiday_type, ["Adventure", "Relaxation", "Family", "Historical"], {selected: "Adventure"}, class: "form-select" %>
+            <%= f.select :holiday_type, ["Adventure", "Relaxation", "Family", "Historical"], {selected: "Adventure"}, class: "form-select", required: true %>
           </div>
 
           <div class="row">
             <div class="col-6 mb-3">
               <%= f.label :start_date, class: "form-label" %>
-              <%= f.date_field :start_date, class: "form-control rounded-3" %>
+              <%= f.date_field :start_date, class: "form-control rounded-3", required: true %>
             </div>
             <div class="col-6 mb-3">
               <%= f.label :end_date, class: "form-label" %>
-              <%= f.date_field :end_date, class: "form-control rounded-3" %>
+              <%= f.date_field :end_date, class: "form-control rounded-3", required: true %>
             </div>
           </div>
 
           <div class="row">
             <div class="col-6 mb-3">
               <%= f.label :adults, class: "form-label" %>
-              <%= f.number_field :adults, value: 1, class: "form-control rounded-3" %>
+              <%= f.number_field :adults, value: 1, class: "form-control rounded-3", required: true %>
             </div>
             <div class="col-6 mb-3">
               <%= f.label :children, class: "form-label" %>
-              <%= f.number_field :children, value: 0, class: "form-control rounded-3" %>
+              <%= f.number_field :children, value: 0, class: "form-control rounded-3", required: true %>
             </div>
           </div>
 
           <div class="mb-4">
             <%= f.label :budget, "Budget (€)", class: "form-label" %>
-            <%= f.number_field :budget, class: "form-control rounded-3", placeholder: "e.g. 1500" %>
+            <%= f.number_field :budget, class: "form-control rounded-3", required: true, placeholder: "e.g. 1500" %>
           </div>
 
           <% submit_text = @mode == "ideas" ? "Get destination ideas" : "Plan my trip" %>

@@ -20,4 +20,7 @@ Rails.application.routes.draw do
   resources :chats, only: :show do
     resources :messages, only: [:create]
   end
+
+  post "/chat", to: "chats#create_itinerary", as: :create_itinerary
+
 end
