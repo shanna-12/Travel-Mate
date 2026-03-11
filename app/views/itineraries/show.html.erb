@@ -1,30 +1,49 @@
-<h1>Trip to <%= @itinerary.destination %></h1>
+<div class="container mt-5">
 
-<p>Holiday Type: <%= @itinerary.holiday_type %></p>
-<p>Start Date: <%= @itinerary.start_date %></p>
-<p>End Date: <%= @itinerary.end_date %></p>
-<p>Budget: €<%= @itinerary.budget %></p>
+  <!-- Page Title -->
+  <h1 class="text-center mb-4">
+    Trip to <%= @itinerary.destination %>
+  </h1>
 
-<hr>
+  <div class="row justify-content-center">
 
-<h2>Your Chats</h2>
+    <!-- Main Itinerary Content -->
+    <div class="col-md-8">
+      <div class="card shadow p-4 mb-4">
+        <h3 class="mb-3">Trip Details</h3>
 
-<div class="row">
-  <div class="col">
-    TO ADD YOUR ITINERARY SHOW CONTENT HERE
-  </div>
-  <div class="col-md-3">
-    <h2>Chats</h2>
-    <div class="mb-4">
-      <% if @chats.any? %>
-        <ul>
-          <% @chats.each do |chat| %>
-            <li><%= link_to chat.title, chat_path(chat) %></li>
-          <% end %>
-        </ul>
-      <% else %>
-        There are no chats yet.
-      <% end %>
+        <p><strong>Holiday Type:</strong> <%= @itinerary.holiday_type %></p>
+        <p><strong>Start Date:</strong> <%= @itinerary.start_date %></p>
+        <p><strong>End Date:</strong> <%= @itinerary.end_date %></p>
+        <p><strong>Budget:</strong> €<%= @itinerary.budget %></p>
+
+        <hr>
+
+        <h4>Your Itinerary</h4>
+        <p class="text-muted">
+          TO ADD  ITINERARY
+        </p>
+      </div>
     </div>
+
+    <!-- Chats Sidebar -->
+    <div class="col-md-3">
+      <div class="card shadow p-3">
+        <h4 class="text-center mb-3">Chats</h4>
+
+        <% if @chats.any? %>
+          <ul class="list-group">
+            <% @chats.each do |chat| %>
+              <li class="list-group-item">
+                <%= link_to chat.title, chat_path(chat) %>
+              </li>
+            <% end %>
+          </ul>
+        <% else %>
+          <p class="text-muted text-center">There are no chats yet.</p>
+        <% end %>
+      </div>
+    </div>
+
   </div>
 </div>
