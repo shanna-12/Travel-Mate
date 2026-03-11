@@ -1,6 +1,5 @@
-<%= link_to "← Back to itinerary", itinerary_path(@chat.itinerary)%>
-
-<h1 id="chat_title"><%= @chat.title %></h1>
+<%= link_to "← #{@chat.itinerary.destination}", itinerary_path(@chat.itinerary)%>
+<h1 id="chat_title"><%= @chat.itinerary.destination %></h1>
 
 <div id="messages">
   <% @chat.messages.each do |message| %>
