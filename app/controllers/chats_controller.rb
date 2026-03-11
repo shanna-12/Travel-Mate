@@ -14,6 +14,21 @@ class ChatsController < ApplicationController
     end
   end
 
+  def create_itinerary
+    @itinerary = current_user.itineraries.create
+    # @chat = Chat.new(title: "Untitled")
+    @chat = Chat.new(title: Chat::DEFAULT_TITLE)
+    @chat.itinerary = @itinerary
+    @chat.user = current_user
+
+    if @chat.save
+      redirect_to chat_path(@chat)
+    else
+      @chats = @itinerary.chats.where(user: current_user)
+      render "itineraries/show"
+    end
+  end
+
   def show
     @chat = current_user.chats.find(params[:id])
     @message = Message.new
