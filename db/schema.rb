@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.1].define(version: 2026_03_10_143442) do
+ActiveRecord::Schema[8.1].define(version: 2026_03_11_225029) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_catalog.plpgsql"
 
@@ -33,6 +33,7 @@ ActiveRecord::Schema[8.1].define(version: 2026_03_10_143442) do
     t.date "end_date"
     t.string "holiday_type"
     t.date "start_date"
+    t.text "summary"
     t.datetime "updated_at", null: false
     t.bigint "user_id", null: false
     t.index ["user_id"], name: "index_itineraries_on_user_id"
