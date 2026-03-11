@@ -1,7 +1,8 @@
 class ChatsController < ApplicationController
   def create
     @itinerary = Itinerary.find(params[:itinerary_id])
-    @chat = Chat.new(title: "Untitled")
+    # @chat = Chat.new(title: "Untitled")
+    @chat = Chat.new(title: Chat::DEFAULT_TITLE)
     @chat.itinerary = @itinerary
     @chat.user = current_user
 
