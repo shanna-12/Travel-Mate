@@ -17,6 +17,7 @@ class ItinerariesController < ApplicationController
   def show
     @itinerary = Itinerary.find(params[:id])
     @chats = @itinerary.chats.where(user: current_user)
+    @assistant_message = @chat&.messages&.where(role: "assistant")&.last
   end
 
   private

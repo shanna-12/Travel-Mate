@@ -9,37 +9,37 @@
 
           <div class="mb-3">
             <%= f.label :destination, class: "form-label" %>
-            <%= f.text_field :destination, class: "form-control" %>
+            <%= f.text_field :destination, class: "form-control", required: true %>
           </div>
 
           <div class="mb-3">
             <%= f.label :holiday_type, class: "form-label" %>
-            <%= f.select :holiday_type, ["Adventure", "Relaxation", "Family", "Historical"], {selected: "Adventure"}, class: "form-select" %>
+            <%= f.select :holiday_type, ["Adventure", "Relaxation", "Family", "Historical"], {selected: "Adventure"}, class: "form-select", required: true %>
           </div>
 
           <div class="mb-3">
             <%= f.label :start_date, class: "form-label" %>
-            <%= f.date_field :start_date, class: "form-control" %>
+            <%= f.date_field :start_date, class: "form-control", required: true %>
           </div>
 
           <div class="mb-3">
             <%= f.label :end_date, class: "form-label" %>
-            <%= f.date_field :end_date, class: "form-control" %>
+            <%= f.date_field :end_date, class: "form-control", required: true %>
           </div>
 
           <div class="mb-3">
             <%= f.label :adults, class: "form-label" %>
-            <%= f.number_field :adults, value: 1, class: "form-control" %>
+            <%= f.number_field :adults, value: 1, class: "form-control", required: true %>
           </div>
 
           <div class="mb-3">
             <%= f.label :children, class: "form-label" %>
-            <%= f.number_field :children, value: 0, class: "form-control" %>
+            <%= f.number_field :children, value: 0, class: "form-control", required: true %>
           </div>
 
           <div class="mb-3">
             <%= f.label :budget, "Budget (€)", class: "form-label" %>
-            <%= f.number_field :budget, class: "form-control" %>
+            <%= f.number_field :budget, class: "form-control", required: true %>
           </div>
 
           <%= f.submit "Find Holiday Ideas", class: "btn btn-primary w-100" %>
