@@ -1,8 +1,14 @@
 class ItinerariesController < ApplicationController
+  before_action :authenticate_user!
+  before_action :set_itinerary, only: [:show]
   def new
     @itinerary = Itinerary.new
+    @mode = params[:mode]
   end
 
+  def index
+    @itineraries = current_user.itineraries
+  end
   def create
     @itinerary = Itinerary.new(itinerary_params)
     @itinerary.user = current_user

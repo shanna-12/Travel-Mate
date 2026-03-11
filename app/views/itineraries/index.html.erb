@@ -1,0 +1,28 @@
+<div class="container mt-5">
+  <div class="row">
+    <div class="col-12 text-center mb-5">
+      <h1 class="display-4">My Travel Ideas</h1>
+    </div>
+  </div>
+
+  <div class="container mt-5">
+    <% if @itineraries.any? %>
+      <% @itineraries.each do |itinerary| %>
+        <%= link_to itinerary_path(itinerary), class: "card-category",
+            style: "background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60')" do %>
+          <div>
+            <p class="mb-0"><%= itinerary.destination %></p>
+            <span style="font-size: 14px; font-weight: normal;"><%= itinerary.start_date&.strftime('%b %Y') %></span>
+          </div>
+        <% end %> <% end %> <% else %>
+      <div class="row">
+    <div class="col-12 text-center mt-4">
+      <h2 class="text-muted mb-4 display-6">
+        Where would you like to go? 🌍
+      </h2>
+
+        <%= link_to "Plan your adventure", new_itinerary_path,
+            class: "btn btn-tm-blue btn-lg px-5 py-3 shadow-sm",
+            style: "font-size: 1.25rem; border-radius: 50px;" %>
+      </div>
+        <% end %>
