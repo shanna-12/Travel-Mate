@@ -1,30 +1,62 @@
-<%= link_to "← #{@chat.itinerary.destination}", itinerary_path(@chat.itinerary)%>
-<h1 id="chat_title"><%= @chat.itinerary.destination %></h1>
+<div class="container py-4">
 
-<div id="messages">
-  <% @chat.messages.each do |message| %>
-    <% if message.role == "user" %>
-      <div class="d-flex justify-content-end mb-2">
-        <div class="bg-white px-3 pb-0 pt-3 rounded-pill">
-          <%= raw(render_markdown(message.content)) %>
+  <!-- Back link -->
+  <%= link_to "← #{(@chat.itinerary.destination).capitalize}", itinerary_path(@chat.itinerary), class: "text-decoration-none text-muted mb-2 d-inline-block" %>
+
+  <!-- Title -->
+  <h1 id="chat_title" class="mb-4 text-center">
+    <%= (@chat.itinerary.destination).capitalize %>
+  </h1>
+
+  <!-- Messages container -->
+  <div id="messages" class="bg-light p-4 rounded-4 mb-4" style="max-height: 60vh; overflow-y: auto;">
+
+    <% @chat.messages.each do |message| %>
+
+      <% if message.role == "user" %>
+        <div class="d-flex justify-content-end mb-3">
+          <div class="bg-primary text-white px-4 py-2 rounded-pill shadow-sm" style="max-width: 70%;">
+            <%= raw(render_markdown(message.content)) %>
+          </div>
         </div>
-      </div>
-    <% elsif message.role == "assistant" %>
-      <div class="d-flex justify-content-start mb-5">
-        <div class="px-3 pb-0 pt-3">
-          <%= raw(render_markdown(message.content)) %>
+
+      <% elsif message.role == "assistant" %>
+        <div class="d-flex justify-content-start mb-3">
+          <div class="bg-white px-4 py-2 rounded-4 shadow-sm border" style="max-width: 70%;">
+            <%= raw(render_markdown(message.content)) %>
+          </div>
         </div>
-      </div>
+      <% end %>
+
     <% end %>
-  <% end %>
-</div>
 
-<%= link_to "← #{@chat.itinerary.destination}", itinerary_path(@chat.itinerary)%>
-<h1 id="chat_title"><%= @chat.title %></h1>
+  </div>
 
-<div id="new_message_container">
-  <%= simple_form_for [@chat, @message] do |f| %>
-    <%= f.input :content, label: "Ask a question", required: true, placeholder: "How should I get started with?" %>
-    <%= f.button :submit, 'Ask LLM', class: 'btn btn-primary' %>
-  <% end %>
+  <!-- Message form -->
+  <div id="new_message_container" class="card shadow-sm border-0">
+    <div class="card-body">
+
+      <%= simple_form_for [@chat, @message] do |f| %>
+
+        <div class="row g-2 align-items-end">
+
+          <div class="col">
+            <%= f.input :content,
+              label: false,
+              placeholder: "Ask something about #{@chat.itinerary.destination}...",
+              input_html: { class: "form-control rounded-pill px-4 py-2" } %>
+          </div>
+
+          <div class="col-auto">
+            <%= f.button :submit, "Ask LLM",
+              class: "btn btn-primary rounded-pill px-4" %>
+          </div>
+
+        </div>
+
+      <% end %>
+
+    </div>
+  </div>
+
 </div>
