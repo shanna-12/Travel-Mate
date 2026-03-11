@@ -1,48 +1,62 @@
-<div class="container mt-5">
+<div class="container py-5">
   <div class="row justify-content-center">
     <div class="col-lg-6 col-md-8 col-sm-10">
 
-      <div class="card shadow p-4" style="background-color: white;">
-        <h1 class="mb-4 text-center">Find a New Holiday Idea</h1>
+      <div class="card shadow-sm p-4 p-md-5 rounded-4 border-0" style="background-color: white;">
+
+        <% if @mode == "ideas" %>
+          <h1 class="mb-3 text-center fw-bold">Find a New Holiday Idea</h1>
+          <p class="text-center text-muted mb-4">
+            Fill out this form so TravelMate can suggest destinations based on your vibe, budget and travel style.
+          </p>
+        <% else %>
+          <h1 class="mb-3 text-center fw-bold">Where are you travelling to?</h1>
+          <p class="text-center text-muted mb-4">
+            Fill out this form to start planning your trip.
+          </p>
+        <% end %>
 
         <%= form_with model: @itinerary, class: "needs-validation" do |f| %>
 
           <div class="mb-3">
             <%= f.label :destination, class: "form-label" %>
-            <%= f.text_field :destination, class: "form-control" %>
+            <%= f.text_field :destination, class: "form-control rounded-3", placeholder: "e.g. Paris, Tokyo..." %>
           </div>
 
           <div class="mb-3">
             <%= f.label :holiday_type, class: "form-label" %>
-            <%= f.select :holiday_type, ["Adventure", "Relaxation", "Family", "Historical"], {}, class: "form-select" %>
+            <%= f.select :holiday_type, ["Adventure", "Relaxation", "Family", "Historical"], {}, class: "form-select rounded-3" %>
           </div>
 
-          <div class="mb-3">
-            <%= f.label :start_date, class: "form-label" %>
-            <%= f.date_field :start_date, class: "form-control" %>
+          <div class="row">
+            <div class="col-6 mb-3">
+              <%= f.label :start_date, class: "form-label" %>
+              <%= f.date_field :start_date, class: "form-control rounded-3" %>
+            </div>
+            <div class="col-6 mb-3">
+              <%= f.label :end_date, class: "form-label" %>
+              <%= f.date_field :end_date, class: "form-control rounded-3" %>
+            </div>
           </div>
 
-          <div class="mb-3">
-            <%= f.label :end_date, class: "form-label" %>
-            <%= f.date_field :end_date, class: "form-control" %>
+          <div class="row">
+            <div class="col-6 mb-3">
+              <%= f.label :adults, class: "form-label" %>
+              <%= f.number_field :adults, value: 1, class: "form-control rounded-3" %>
+            </div>
+            <div class="col-6 mb-3">
+              <%= f.label :children, class: "form-label" %>
+              <%= f.number_field :children, value: 0, class: "form-control rounded-3" %>
+            </div>
           </div>
 
-          <div class="mb-3">
-            <%= f.label :adults, class: "form-label" %>
-            <%= f.number_field :adults, value: 1, class: "form-control" %>
-          </div>
-
-          <div class="mb-3">
-            <%= f.label :children, class: "form-label" %>
-            <%= f.number_field :children, value: 0, class: "form-control" %>
-          </div>
-
-          <div class="mb-3">
+          <div class="mb-4">
             <%= f.label :budget, "Budget (€)", class: "form-label" %>
-            <%= f.number_field :budget, class: "form-control" %>
+            <%= f.number_field :budget, class: "form-control rounded-3", placeholder: "e.g. 1500" %>
           </div>
 
-          <%= f.submit "Find Holiday Ideas", class: "btn btn-primary w-100" %>
+          <% submit_text = @mode == "ideas" ? "Get destination ideas" : "Plan my trip" %>
+          <%= f.submit submit_text, class: "btn btn-tm-blue w-100 btn-lg rounded-3" %>
 
         <% end %>
       </div>

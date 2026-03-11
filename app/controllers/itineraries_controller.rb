@@ -1,6 +1,7 @@
 class ItinerariesController < ApplicationController
   def new
     @itinerary = Itinerary.new
+    @mode = params[:mode]
   end
 
   def create
