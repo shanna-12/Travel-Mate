@@ -1,0 +1,42 @@
+<h1>Find a New Holiday Idea</h1>
+
+<%= form_with model: @itinerary do |f| %>
+
+  <div>
+    <%= f.label :destination %>
+    <%= f.text_field :destination %>
+  </div>
+
+  <div>
+    <%= f.label :holiday_type %>
+    <%= f.select :holiday_type, ["Adventure", "Relaxation", "Family", "Historical"] %>
+  </div>
+
+  <div>
+    <%= f.label :start_date %>
+    <%= f.date_field :start_date %>
+  </div>
+
+  <div>
+    <%= f.label :end_date %>
+    <%= f.date_field :end_date %>
+  </div>
+
+  <div>
+    <%= f.label :adults %>
+    <%= f.number_field :adults %>
+  </div>
+
+  <div>
+    <%= f.label :children %>
+    <%= f.number_field :children %>
+  </div>
+
+  <div>
+    <%= f.label :budget %>
+    <%= f.number_field :budget %>
+  </div>
+
+  <%= f.submit "Find Holiday Ideas" %>
+
+<% end %>
