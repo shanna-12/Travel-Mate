@@ -1,7 +1,5 @@
 <section class="hero-section text-center">
-
   <div class="container">
-
     <h1 class="hero-title">
       Plan your next trip with TravelMate
     </h1>
@@ -11,24 +9,17 @@
     </p>
 
     <div class="cards mt-5">
-
-      <%= link_to "#", class: "card-category",
-      style: "background-image: linear-gradient(rgba(0,0,0,0.35), rgba(0,0,0,0.35)), url('#{asset_path('mountains.jpg')}')" do %>
-
+      <%= link_to new_itinerary_path(mode: "plan"),
+          class: "card-category",
+          style: "background-image: linear-gradient(rgba(0,0,0,0.35), rgba(0,0,0,0.35)), url('#{asset_path('mountains.jpg')}')" do %>
         I have an idea for my travel
-
       <% end %>
 
-
-      <%= link_to "#", class: "card-category",
-      style: "background-image: linear-gradient(rgba(0,0,0,0.35), rgba(0,0,0,0.35)), url('#{asset_path('balloons.jpg')}')" do %>
-
+      <%= link_to new_itinerary_path(mode: "ideas"),
+          class: "card-category",
+          style: "background-image: linear-gradient(rgba(0,0,0,0.35), rgba(0,0,0,0.35)), url('#{asset_path('balloons.jpg')}')" do %>
         Help me find my next destination
-
       <% end %>
-
     </div>
-
   </div>
-
 </section>
