@@ -16,7 +16,7 @@ class MessagesController < ApplicationController
       return redirect_to chat_path(@chat) if @message.content.blank?
 
       response = @ruby_llm_chat.with_instructions(instructions).ask(@message.content)
-      @chat.messages.create(role: "assistant", content: response.content)
+      @chat.messages.create(role: "assistant", content: response.content || "")
       @chat.generate_title_from_first_message # NEW
       redirect_to chat_path(@chat)
     else
@@ -47,7 +47,12 @@ class MessagesController < ApplicationController
 
   def build_conversation_history
     @chat.messages.each do |message|
-      @ruby_llm_chat.add_message(message)
+      next if message.content.blank?
+
+      @ruby_llm_chat.add_message(
+        role: message.role,
+        content: message.content
+      )
     end
   end
 end
