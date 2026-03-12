@@ -19,10 +19,13 @@
 
         <hr>
 
-        <%# <h4>Your Itinerary</h4>
+        <h4>Your Itinerary</h4>
+        <span class="text-muted">Want to make changes? Start a new chat with the AI</span>
         <p class="text-muted">
-          TO ADD  ITINERARY
-        </p> %>
+          <div class="card p-3 shadow-sm">
+            <%= raw(render_markdown(@itinerary.summary)) %>
+          </div>
+        </p>
       </div>
     </div>
 
@@ -42,7 +45,9 @@
         <% else %>
           <p class="text-muted text-center">There are no chats yet.</p>
         <% end %>
-        <%= button_to "New chat", itinerary_chats_path(@itinerary) %>
+        <div class="d-flex justify-content-center mt-3">
+          <%= button_to "New chat", itinerary_chats_path(@itinerary), class: "btn btn-tm-blue w-20 rounded-3" %>
+        </div>
 
       </div>
     </div>
