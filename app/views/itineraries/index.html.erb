@@ -15,7 +15,7 @@
 
               <div class="text-muted mb-4 flex-grow-1">
                 <p class="small mb-1"><i class="far fa-calendar me-2"></i>
-                  <%= trip.start_date.strftime("%b %d") %> - <%= trip.end_date.strftime("%b %d, %Y") %>
+                  <%= trip.start_date&.strftime("%b %d") %> - <%= trip.end_date&.strftime("%b %d, %Y") %>
                 </p>
                 <p class="small mb-1"><i class="fas fa-wallet me-2"></i>Budget: €<%= trip.budget %></p>
                 <p class="small mb-0"><i class="fas fa-users me-2"></i><%= trip.adults.to_i + trip.children.to_i %> Travelers</p>
