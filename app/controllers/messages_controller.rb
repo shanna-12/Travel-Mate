@@ -1,5 +1,6 @@
 class MessagesController < ApplicationController
-  SYSTEM_PROMPT = "You are a Travel Assistant.\n\nI am looking for travel advise.\n\nHelp me find a holiday itinerary that suits my holiday type.\n\nAnswer concisely in Markdown."
+  SYSTEM_PROMPT = "You are a Travel Assistant.\n\nI am looking for travel advise.
+  \n\nHelp me find a holiday itinerary that suits my holiday type.\n\nAnswer concisely in Markdown."
 
   def create
     @chat = current_user.chats.find(params[:chat_id])
@@ -12,6 +13,8 @@ class MessagesController < ApplicationController
     if @message.save
       @ruby_llm_chat = RubyLLM.chat
       build_conversation_history # now it remembers it!
+      return redirect_to chat_path(@chat) if @message.content.blank?
+
       response = @ruby_llm_chat.with_instructions(instructions).ask(@message.content)
       @chat.messages.create(role: "assistant", content: response.content)
       @chat.generate_title_from_first_message # NEW
