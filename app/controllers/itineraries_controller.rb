@@ -1,4 +1,8 @@
 class ItinerariesController < ApplicationController
+  before_action :authenticate_user! # Redirects to login if not signed in
+  def index
+    @my_trips = current_user.itineraries
+  end
   def new
     @itinerary = Itinerary.new
     @mode = params[:mode]

@@ -31,7 +31,7 @@
           <div class="row">
             <div class="col-6 mb-3">
               <%= f.label :start_date, class: "form-label" %>
-              <%= f.date_field :start_date, class: "form-control rounded-3", required: true %>
+              <%= f.date_field :start_date, class: "form-control rounded-3", required: true, min: Date.current %>
             </div>
             <div class="col-6 mb-3">
               <%= f.label :end_date, class: "form-label" %>

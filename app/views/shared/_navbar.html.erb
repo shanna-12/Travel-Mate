@@ -1,20 +1,35 @@
-<nav class="navbar navbar-expand-sm navbar-light bg-white shadow-sm px-4">
+<nav class="navbar navbar-expand-sm navbar-dark navbar-hero px-4">
   <div class="container-fluid">
 
     <%= link_to root_path, class: "navbar-brand fw-bold d-flex align-items-center" do %>
-      <%= image_tag "logoresized.png", alt: "TravelMate Logo" %>
+      <%= image_tag "logoresized.png", alt: "TravelMate Logo", class: "navbar-logo" %>
     <% end %>
 
     <div class="ms-auto d-flex align-items-center">
       <% if user_signed_in? %>
-        <%# Keeping your custom rounded outline button %>
-        <%= link_to "Log out", destroy_user_session_path, data: { turbo_method: :delete }, class: "btn btn-tm-outline" %>
+
+        <%= link_to itineraries_path, class: "btn btn-tm-outline me-3" do %>
+          <i class="fa-solid fa-suitcase me-1"></i> My Trips
+        <% end %>
+
+        <%= link_to "Log out",
+            destroy_user_session_path,
+            data: { turbo_method: :delete },
+            class: "btn btn-tm-blue" %>
+
       <% else %>
-        <%# Keeping your custom rounded blue buttons %>
-        <%= link_to "Login", new_user_session_path, class: "btn btn-tm-outline me-2" %>
-        <%= link_to "Sign up", new_user_registration_path, class: "btn btn-tm-blue" %>
+
+        <%= link_to "Login",
+            new_user_session_path,
+            class: "btn btn-tm-outline me-2" %>
+
+        <%= link_to "Sign up",
+            new_user_registration_path,
+            class: "btn btn-tm-blue" %>
+
       <% end %>
     </div>
 
   </div>
 </nav>
+```

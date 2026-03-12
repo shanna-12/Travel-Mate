@@ -5,6 +5,17 @@
 // input and has no visual effect. Here we try to fix matters by
 // applying the clear to the div wrapping the first following radio button
 // or checkbox.
+.form-label {
+  font-weight: 600;
+  font-size: 0.9rem;
+  color: #495057;
+}
+
+.form-control:focus {
+  border-color: #1d3557;
+  box-shadow: 0 0 0 0.25rem rgba(29, 53, 87, 0.1);
+}
+
 legend ~ div.form-check:first-of-type {
   clear: left;
 }
