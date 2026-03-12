@@ -1,5 +1,6 @@
 class MessagesController < ApplicationController
-  SYSTEM_PROMPT = "You are a Travel Assistant.\n\nI am looking for travel advise.\n\nHelp me find a holiday itinerary that suits my holiday type.\n\nAnswer concisely in Markdown."
+  SYSTEM_PROMPT = "You are a Travel Assistant.\n\nI am looking for travel advise.\n\nHelp me find a holiday itinerary
+    that suits my holiday type.\n\nAnswer concisely in Markdown."
 
   def create
     @chat = current_user.chats.find(params[:chat_id])

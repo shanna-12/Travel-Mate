@@ -10,11 +10,11 @@ class ItinerariesController < ApplicationController
 
     if @itinerary.save
 
-      prompt = prompt = <<~PROMPT
+      prompt = <<~PROMPT
         Generate a day-wise travel itinerary in Markdown.
 
         Destination: #{@itinerary.destination}
-        Dates: #{@itinerary.start_date}–#{@itinerary.end_date}
+        Dates: #{@itinerary.start_date} to #{@itinerary.end_date}
         Type: #{@itinerary.holiday_type}
         Travelers: #{@itinerary.adults} adults, #{@itinerary.children} children
         Budget: #{@itinerary.budget}€
