@@ -10,7 +10,7 @@ class ItinerariesController < ApplicationController
 
     if @itinerary.save
 
-      prompt = prompt = <<~PROMPT
+      prompt = <<~PROMPT
         Generate a day-wise travel itinerary in Markdown.
 
         Destination: #{@itinerary.destination}
