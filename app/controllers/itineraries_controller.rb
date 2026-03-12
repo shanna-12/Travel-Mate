@@ -10,30 +10,20 @@ class ItinerariesController < ApplicationController
 
     if @itinerary.save
 
-      prompt = <<~PROMPT
-        Create a day-wise travel itinerary.
+      prompt = prompt = <<~PROMPT
+        Generate a day-wise travel itinerary in Markdown.
 
         Destination: #{@itinerary.destination}
-        Holiday type: #{@itinerary.holiday_type}
-        Start date: #{@itinerary.start_date}
-        End date: #{@itinerary.end_date}
-        Adults: #{@itinerary.adults}
-        Children: #{@itinerary.children}
-        Budget: #{@itinerary.budget} euros
+        Dates: #{@itinerary.start_date}–#{@itinerary.end_date}
+        Type: #{@itinerary.holiday_type}
+        Travelers: #{@itinerary.adults} adults, #{@itinerary.children} children
+        Budget: #{@itinerary.budget}€
 
-        Return the itinerary in Markdown using this format:
-
-        Day 1:
-        - Morning:
-        - Afternoon:
-        - Evening:
-
-        Day 2:
-        - Morning:
-        - Afternoon:
-        - Evening:
-
-        Continue for all days between the start and end date.
+        Format:
+        Day 1
+        - Morning
+        - Afternoon
+        - Evening
       PROMPT
 
       chat = RubyLLM.chat
