@@ -13,11 +13,14 @@
             <%= f.input :password,
                         required: false,
                         input_html: { autocomplete: "current-password", class: "rounded-3" } %>
+            <%= f.input :password_confirmation,
+                        required: true,
+                        input_html: { autocomplete: "new-password" } %>
             <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
           </div>
 
           <div class="form-actions d-grid gap-2">
-            <%= f.button :submit, "Log in", class: "btn btn-tm-blue btn-lg" %>
+            <%= f.button :submit, "Sign up", class: "btn btn-tm-blue btn-lg" %>
           </div>
         <% end %>
 
