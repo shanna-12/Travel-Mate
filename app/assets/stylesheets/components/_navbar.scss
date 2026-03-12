@@ -4,18 +4,13 @@
   left: 0;
   width: 100%;
   z-index: 1000;
-
   display: flex;
   align-items: center;
-
   padding: 12px 24px;
-
   background: linear-gradient(
     rgba(0, 0, 0, 0.15),
     rgba(0, 0, 0, 0)
   );
-
-  box-shadow: none;
 }
 
 .navbar-brand {
@@ -30,39 +25,34 @@
   border-radius: 10px;
 }
 
+/* wrapper spacing */
+.navbar-hero .ms-auto {
+  gap: 12px;
+}
+
 /* navbar buttons */
 .navbar-hero .btn-tm-outline,
-.navbar-hero .btn-tm-blue {
+.navbar-hero .btn-tm-blue,
+.navbar-hero .btn-tm-trips {
   box-sizing: border-box;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-
+  gap: 6px;
   height: 40px;
   min-width: 120px;
   padding: 0 18px;
-
   border-radius: 30px;
   font-weight: 600;
   letter-spacing: 0.4px;
   line-height: 1;
   text-decoration: none;
-
   backdrop-filter: blur(4px);
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
   transition: all 0.2s ease;
-
-  margin-left: 6px;
 }
 
-/* icon spacing */
-.navbar-hero .btn i {
-  margin-right: 6px;
-  font-size: 0.9em;
-  line-height: 1;
-}
-
-/* outline button */
+/* default outline button */
 .navbar-hero .btn-tm-outline {
   border: 2px solid white;
   color: white;
@@ -76,10 +66,24 @@
   box-shadow: 0 6px 16px rgba(0, 0, 0, 0.25);
 }
 
+/* slightly stronger version for My Trips */
+.navbar-hero .btn-tm-trips {
+  border: 2px solid white;
+  color: white;
+  background: rgba(103, 219, 235, 0.22);
+}
+
+.navbar-hero .btn-tm-trips:hover {
+  background: white;
+  color: #1d3557;
+  transform: translateY(-1px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.25);
+}
+
 /* blue button */
 .navbar-hero .btn-tm-blue {
   border: 2px solid transparent;
-  background-color: #88c4e9;
+  background-color: #6ac9b9;
   color: white;
 }
 
@@ -88,4 +92,8 @@
   color: white;
   transform: translateY(-1px);
   box-shadow: 0 6px 16px rgba(0, 0, 0, 0.25);
+}
+
+.navbar-hero .btn-tm-outline-darker {
+  background: rgba(103, 219, 235, 0.22);
 }
