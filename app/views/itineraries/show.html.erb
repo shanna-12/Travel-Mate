@@ -21,11 +21,9 @@
 
         <h4>Your Itinerary</h4>
         <span class="text-muted">Want to make changes? Start a new chat with the AI</span>
-        <p class="text-muted">
           <div class="card p-3 shadow-sm">
             <%= raw(render_markdown(@itinerary.summary)) %>
           </div>
-        </p>
       </div>
     </div>
 
@@ -38,7 +36,7 @@
           <ul class="list-group">
             <% @chats.each do |chat| %>
               <li class="list-group-item">
-                <%= link_to chat.title, chat_path(chat) %>
+                <%= link_to chat.title, chat_path(chat), class: "text-decoration-none" %>
               </li>
             <% end %>
           </ul>
