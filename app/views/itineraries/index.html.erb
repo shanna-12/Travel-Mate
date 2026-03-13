@@ -14,7 +14,7 @@
             <p class="fw-bold mb-2"><%= trip.destination %></p>
 
             <div class="trip-details small mb-4">
-              <h4 class="mb-1"><i class="far fa-calendar me-2"></i><%= trip.start_date.strftime("%b %d") %> - <%= trip.end_date.strftime("%b %d, %Y") %></h4>
+              <h4 class="mb-1"><i class="far fa-calendar me-2"></i><%= trip.start_date&.strftime("%b %d") %> - <%= trip.end_date&.strftime("%b %d, %Y") %></h4>
               <h4 class="mb-0">Budget: €<%= trip.budget %> | <%= trip.adults.to_i + trip.children.to_i %> Travelers</h4>
             </div>
 
