@@ -1,5 +1,6 @@
 <section class="hero-section text-center">
-  <div id="heroCarousel" class="carousel slide hero-carousel" data-bs-ride="carousel">
+  <div id="heroCarousel" class="carousel slide hero-carousel" data-bs-ride="carousel" data-bs-interval="5000">
+
     <div class="carousel-inner">
 
       <div class="carousel-item active">
@@ -8,7 +9,7 @@
         >
           <div class="hero-overlay">
             <div class="container hero-content">
-              <h1 class="hero-title">Plan your next trip with TravelMate</h1>
+              <h1 class="hero-title">TravelMate: your AI holiday planner</h1>
             </div>
           </div>
         </div>
@@ -21,7 +22,7 @@
           <div class="hero-overlay">
             <div class="container hero-content">
               <p class="hero-line">
-                Turn a travel idea into a real itinerary.
+                Get destination ideas based on your budget, mood, and travel style.
               </p>
             </div>
           </div>
@@ -36,7 +37,7 @@
           <div class="hero-overlay">
             <div class="container hero-content">
               <p class="hero-line">
-                Get destination ideas based on your mood, budget, and travel style.
+                Get personalized travel recommendations for every trip.
               </p>
             </div>
           </div>
@@ -62,39 +63,45 @@
     </div>
   </div>
 
-  <div class="hero-actions">
-    <div class="container">
-      <div class="cards">
+<section class="hero-actions">
+  <div class="container hero-actions-container">
+    <div class="hero-actions-title">
+      <h2>Turn a travel idea into a real itinerary.</h2>
+    </div>
+
+    <div class="cards">
+      <div class="card-wrapper">
         <%= link_to new_itinerary_path(mode: "plan"),
             method: :get,
             form_class: "card-form",
             class: "card-category",
             style: "background-image: linear-gradient(rgba(0,0,0,0.35), rgba(0,0,0,0.35)), url(#{asset_path('boatonwater.jpg')})" do %>
-          I have an idea for my travel
+          Start planning your trip
         <% end %>
+      </div>
 
+      <div class="card-wrapper">
         <%= button_to create_itinerary_path(mode: "ideas"),
-          method: :post,
-          form_class: "card-form",
-          class: "card-category",
-          style: "background-image: linear-gradient(rgba(0,0,0,0.35), rgba(0,0,0,0.35)), url(#{asset_path('balloons.jpg')})" do %>
-        Help me find my next destination
-      <% end %>
-
+            method: :post,
+            form_class: "card-form",
+            class: "card-category",
+            style: "background-image: linear-gradient(rgba(0,0,0,0.35), rgba(0,0,0,0.35)), url(#{asset_path('balloons.jpg')})" do %>
+          Discover travel ideas
+        <% end %>
       </div>
     </div>
   </div>
 </section>
+    <div class="footer">
+    <div class="footer-links">
+      <a href="#"><i class="fab fa-github"></i></a>
+      <a href="#"><i class="fab fa-instagram"></i></a>
+      <a href="#"><i class="fab fa-facebook"></i></a>
+      <a href="#"><i class="fab fa-twitter"></i></a>
+      <a href="#"><i class="fab fa-linkedin"></i></a>
+    </div>
 
-<div class="footer">
-  <div class="footer-links">
-    <a href="#"><i class="fab fa-github"></i></a>
-    <a href="#"><i class="fab fa-instagram"></i></a>
-    <a href="#"><i class="fab fa-facebook"></i></a>
-    <a href="#"><i class="fab fa-twitter"></i></a>
-    <a href="#"><i class="fab fa-linkedin"></i></a>
+    <div class="footer-copyright">
+      Copyright <i class="fa-regular fa-copyright"></i> 2026 Mate Inc. All rights reserved.
+    </div>
   </div>
-  <div class="footer-copyright">
-  Copyright <i class="fa-regular fa-copyright"></i> 2026 Mate Inc. All rights reserved.
-  </div>
-</div>
