@@ -2,7 +2,7 @@
 
     <!-- Back link -->
     <% if @chat.itinerary.destination.present? %>
-      <%= link_to itinerary_path(@chat.itinerary), class: "text-decoration-none text-muted mb-2 d-inline-block" do %>
+      <%= link_to itinerary_path(@chat.itinerary), class: "text-decoration-none text-muted mb-2 d-inline-block mt-5" do %>
         <i class="fa-regular fa-circle-left"></i>
         <%= @chat.itinerary.destination %>
       <% end %>
