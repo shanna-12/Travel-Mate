@@ -14,6 +14,25 @@
     </h1>
 
     <!-- Messages container -->
+
+  <div class="card border-0 shadow-sm mb-4">
+    <div class="card-body">
+
+      <h5 class="mb-3">💡 What can you ask the AI</h5>
+
+      <ul class="text-muted mb-0">
+        <li>What are some affordable travel destinations this summer for one week in Europe?</li>
+        <li>Where should I travel in Paris for a 5 days trip with a budget of €1000 for 2 persons?</li>
+        <li>Which destinations are good for adventure travel in Asia?</li>
+        <li>What are good destinations for a family trip in Netherland?</li>
+      </ul>
+
+    </div>
+  </div>
+
+
+  <!-- Messages container -->
+  <% if @chat.messages.any? %>
     <div id="messages" class="bg-light p-4 rounded-4 mb-4" style="max-height: 60vh; overflow-y: auto;">
 
       <% @chat.messages.each do |message| %>
@@ -21,6 +40,7 @@
         <% if message.role == "user" %>
           <div class="d-flex justify-content-end mb-3">
             <div class="text-black px-4 py-1 rounded-pill shadow-sm text-center " style="background-color: #f5f5f5; max-width: 70%;">
+            <div class="bg-primary text-white px-4 py-2 rounded-pill shadow-sm" style="max-width: 70%;">
               <%= raw(render_markdown(message.content)) %>
             </div>
           </div>
@@ -39,6 +59,10 @@
 
     <div id="new_message_container" class="card shadow-sm border-0">
       <div class="card-body">
+  <% end %>
+
+
+    <div class="card-body">
 
         <%= simple_form_for [@chat, @message] do |f| %>
 
@@ -62,6 +86,8 @@
 
       </div>
     </div>
+
+  </div>
 
   </div>
 </section>

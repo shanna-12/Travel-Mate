@@ -3,6 +3,7 @@ class ItinerariesController < ApplicationController
   def index
     @my_trips = current_user.itineraries
   end
+
   def new
     @itinerary = Itinerary.new
     @mode = params[:mode]
@@ -24,7 +25,7 @@ class ItinerariesController < ApplicationController
         Budget: #{@itinerary.budget}€
 
         Format:
-        Day 1
+        Day 1: imporant place name
         - Morning
         - Afternoon
         - Evening
