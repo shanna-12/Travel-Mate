@@ -1,15 +1,19 @@
 <section class="hero-section text-center">
-  <div id="heroCarousel" class="carousel slide hero-carousel" data-bs-ride="carousel" data-bs-interval="5000">
+
+  <div id="heroCarousel"
+       class="carousel slide carousel-fade hero-carousel"
+       data-bs-ride="carousel"
+       data-bs-interval="6500"
+       data-bs-pause="false">
 
     <div class="carousel-inner">
 
       <div class="carousel-item active">
         <div class="hero-slide"
-          style="background-image: url('<%= asset_path("plane-window.jpg") %>');"
-        >
+          style="background-image: url('<%= asset_path("plane-window.jpg") %>');">
           <div class="hero-overlay">
             <div class="container hero-content">
-              <h1 class="hero-title">TravelMate: your AI holiday planner</h1>
+              <h1 class="hero-title">TravelMate: your AI travel planner</h1>
             </div>
           </div>
         </div>
@@ -17,12 +21,11 @@
 
       <div class="carousel-item">
         <div class="hero-slide"
-          style="background-image: url('<%= asset_path("roadtrip.jpg") %>');"
-        >
+          style="background-image: url('<%= asset_path("roadtrip.jpg") %>');">
           <div class="hero-overlay">
             <div class="container hero-content">
               <p class="hero-line">
-                Get destination ideas based on your budget, mood, and travel style.
+                Find trips that fit your budget and travel style.
               </p>
             </div>
           </div>
@@ -30,14 +33,12 @@
       </div>
 
       <div class="carousel-item">
-        <div
-          class="hero-slide"
-          style="background-image: url('<%= asset_path("island-view.jpg") %>');"
-        >
+        <div class="hero-slide"
+          style="background-image: url('<%= asset_path("island-view.jpg") %>');">
           <div class="hero-overlay">
             <div class="container hero-content">
               <p class="hero-line">
-                Get personalized travel recommendations for every trip.
+                Create personalised itineraries in minutes.
               </p>
             </div>
           </div>
@@ -45,63 +46,47 @@
       </div>
 
     </div>
-
-    <button class="carousel-control-prev" type="button" data-bs-target="#heroCarousel" data-bs-slide="prev">
-      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-      <span class="visually-hidden">Previous</span>
-    </button>
-
-    <button class="carousel-control-next" type="button" data-bs-target="#heroCarousel" data-bs-slide="next">
-      <span class="carousel-control-next-icon" aria-hidden="true"></span>
-      <span class="visually-hidden">Next</span>
-    </button>
 
     <div class="carousel-indicators">
       <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
       <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
       <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
     </div>
+
   </div>
 
-<section class="hero-actions">
-  <div class="container hero-actions-container">
-    <div class="hero-actions-title">
-      <h2>Turn a travel idea into a real itinerary.</h2>
-    </div>
+  <section class="hero-actions">
+    <div class="container hero-actions-container">
 
-    <div class="cards">
-      <div class="card-wrapper">
-        <%= link_to new_itinerary_path(mode: "plan"),
-            method: :get,
-            form_class: "card-form",
-            class: "card-category",
-            style: "background-image: linear-gradient(rgba(0,0,0,0.35), rgba(0,0,0,0.35)), url(#{asset_path('boatonwater.jpg')})" do %>
-          Start planning your trip
-        <% end %>
+      <div class="hero-actions-title">
+        <h2>Turn an idea into a real itinerary.</h2>
       </div>
 
-      <div class="card-wrapper">
-        <%= button_to create_itinerary_path(mode: "ideas"),
-            method: :post,
-            form_class: "card-form",
-            class: "card-category",
-            style: "background-image: linear-gradient(rgba(0,0,0,0.35), rgba(0,0,0,0.35)), url(#{asset_path('balloons.jpg')})" do %>
-          Discover travel ideas
-        <% end %>
+      <div class="cards">
+
+        <div class="card-wrapper">
+          <%= link_to new_itinerary_path(mode: "plan"),
+              method: :get,
+              form_class: "card-form",
+              class: "card-category",
+              style: "background-image: linear-gradient(rgba(0,0,0,0.35), rgba(0,0,0,0.35)), url(#{asset_path('boatonwater.jpg')})" do %>
+            Start planning
+          <% end %>
+        </div>
+
+        <div class="card-wrapper">
+          <%= button_to create_itinerary_path(mode: "ideas"),
+              method: :post,
+              form_class: "card-form",
+              class: "card-category",
+              style: "background-image: linear-gradient(rgba(0,0,0,0.35), rgba(0,0,0,0.35)), url(#{asset_path('balloons.jpg')})" do %>
+            Discover destinations
+          <% end %>
+        </div>
+
       </div>
+
     </div>
-  </div>
+  </section>
+
 </section>
-    <div class="footer">
-    <div class="footer-links">
-      <a href="#"><i class="fab fa-github"></i></a>
-      <a href="#"><i class="fab fa-instagram"></i></a>
-      <a href="#"><i class="fab fa-facebook"></i></a>
-      <a href="#"><i class="fab fa-twitter"></i></a>
-      <a href="#"><i class="fab fa-linkedin"></i></a>
-    </div>
-
-    <div class="footer-copyright">
-      Copyright <i class="fa-regular fa-copyright"></i> 2026 Mate Inc. All rights reserved.
-    </div>
-  </div>
