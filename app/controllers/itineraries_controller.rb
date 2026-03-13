@@ -44,7 +44,7 @@ class ItinerariesController < ApplicationController
     @itinerary = Itinerary.find(params[:id])
     @chats = @itinerary.chats.where(user: current_user)
   end
-
+  
   private
 
   def itinerary_params
