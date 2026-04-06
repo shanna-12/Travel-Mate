@@ -74,7 +74,7 @@ end
 
 gem "devise"
 
-gem "ruby_llm", "~> 1.2.0"
+gem "ruby_llm", "~> 1.14.1"
 gem "kramdown"
 gem "rouge"
 gem "kramdown-parser-gfm"
